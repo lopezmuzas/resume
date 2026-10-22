@@ -8,10 +8,10 @@
   <link rel="canonical" href="https://lopezmuzas.github.io/resume/">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/main.css?v=2610">
+  <link rel="stylesheet" href="assets/css/main.css?v=2611">
   <script>
     // El tema guardado se aplica antes de pintar, para que no parpadee.
-    try { const t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+    try { if (localStorage.getItem("theme") === "dark") document.documentElement.dataset.theme = "dark"; } catch (e) {}
   </script>
 </head>
 <body>
@@ -61,7 +61,7 @@
 
     <section id="about" class="hero">
       <p class="eyebrow">// software engineer since 2007</p>
-      <h2>I build business software for regulated sectors, and the plumbing that lets AI agents work with it safely.</h2>
+      <h2>I build business software for regulated sectors, and the plumbing that lets <mark>AI agents</mark> work with it safely.</h2>
       <p>Most of my career has been in vehicle inspection and healthcare: systems that run a business day to day, where a wrong number has consequences. Today that means products for inspection stations, two in-house templates that new products start from, and AI features with hard limits on what the model can touch. Alongside, I'm doing a PhD on federated learning over data spaces.</p>
       <div class="stats">
         <div class="stat"><b>19 yrs</b><span>building and running production software</span></div>
@@ -342,12 +342,11 @@
 </div>
 
 <script>
-  // Botón de tema: alterna claro y oscuro y lo recuerda en este navegador.
+  // Botón de tema: claro por defecto; el oscuro se recuerda en este navegador.
   document.querySelector(".theme-btn").addEventListener("click", () => {
     const root = document.documentElement;
-    const current = root.dataset.theme || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-    const next = current === "light" ? "dark" : "light";
-    root.dataset.theme = next;
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    if (next === "dark") root.dataset.theme = "dark"; else delete root.dataset.theme;
     try { localStorage.setItem("theme", next); } catch (e) {}
   });
 
