@@ -115,6 +115,8 @@ section { display: grid; gap: 20px; }
 .section-head { display: grid; gap: 4px; }
 .section-head h2 { font-size: 26px; font-weight: 500; letter-spacing: -0.015em; line-height: 1.2; }
 .section-head p { color: var(--muted); font-size: 13px; }
+.section-head.sub { margin-top: 12px; }
+.section-head h3 { font-size: 15px; font-weight: 650; letter-spacing: -0.005em; }
 
 /* La experiencia: una fila por puesto, fechas en mono a la izquierda. */
 .timeline { display: grid; gap: 0; padding: 0; list-style: none; }
