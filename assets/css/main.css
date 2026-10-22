@@ -116,13 +116,6 @@ section { display: grid; gap: 20px; }
 .section-head h2 { font-size: 26px; font-weight: 500; letter-spacing: -0.015em; line-height: 1.2; }
 .section-head p { color: var(--muted); font-size: 13px; }
 
-/* Las cifras: tarjetas grises con borde fino; el número en mono. */
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 12px; }
-.stat { position: relative; display: grid; align-content: start; gap: 4px; padding: 16px 18px; border: 1px solid var(--border); border-radius: var(--radius-card); background: var(--surface); overflow: hidden; }
-.stat::before { content: ""; position: absolute; left: 18px; top: 0; width: 28px; height: 4px; border-radius: 0 0 3px 3px; background: var(--mark); }
-.stat b { font-family: var(--font-mono); font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
-.stat span { color: var(--muted); font-size: 12.5px; line-height: 1.4; }
-
 /* La experiencia: una fila por puesto, fechas en mono a la izquierda. */
 .timeline { display: grid; gap: 0; padding: 0; list-style: none; }
 .job { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 6px 28px; padding: 22px 0; border-top: 1px solid var(--border); }
@@ -188,6 +181,6 @@ section { display: grid; gap: 20px; }
   .side { position: static; height: auto; max-height: none; border: 0; padding: 0 0 16px; }
   .nav, .theme-btn, .btn-primary, .no-print { display: none !important; }
   .content { padding: 0; gap: 28px; }
-  .job, .card, .stat, .skill-row { break-inside: avoid; }
+  .job, .card, .skill-row { break-inside: avoid; }
   a { color: inherit; }
 }
