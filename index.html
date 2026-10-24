@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://lopezmuzas.github.io/resume/">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/main.css?v=2612">
+  <link rel="stylesheet" href="assets/css/main.css?v=2613">
   <script>
     // El tema guardado se aplica antes de pintar, para que no parpadee.
     try { if (localStorage.getItem("theme") === "dark") document.documentElement.dataset.theme = "dark"; } catch (e) {}
@@ -233,6 +233,17 @@
         <article class="card">
           <h3>One interface for every project</h3>
           <p><code>make up</code>, <code>check</code>, <code>pr</code>, <code>deploy</code> and <code>rollback</code> work the same everywhere. Nothing ships unless the full check is green, and a failed deploy rolls itself back.</p>
+        </article>
+        <article class="card wide">
+          <h3>Pull requests ready to merge</h3>
+          <p>Nothing reaches main without passing the full check, the same one CI runs; a pre-push hook makes it mandatory on my machine too. On top of that:</p>
+          <ul class="bullets">
+            <li>Linting, formatting and strict type checks, plus architecture rules checked by import-linter or architecture tests.</li>
+            <li>Unit tests for the domain, a test for every HTTP endpoint and MCP tool, and integration tests against a real PostgreSQL, tenant isolation included. A bug fix comes with the test that would have caught it, and coverage has a floor that only goes up.</li>
+            <li>A self-review with <code>/code-review</code>, and a <code>/security-review</code> whenever the change touches sessions, permissions, row-level security or keys.</li>
+            <li>A snapshot of the public contract when the API or MCP changes, and before-and-after screenshots when the interface does.</li>
+            <li>A description that says what changed for the user, how it was verified and what wasn't, with the delivery checklist ticked or explained.</li>
+          </ul>
         </article>
         <article class="card">
           <h3>Small batches</h3>

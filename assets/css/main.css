@@ -149,6 +149,8 @@ section { display: grid; gap: 20px; }
 .skill-row dt { color: var(--ink); font-size: 14px; font-weight: 650; }
 .skill-row dd { margin: 0; color: var(--ink-2); font-size: 14px; }
 
+.card.wide { grid-column: 1 / -1; }
+.card .bullets { margin-top: 2px; font-size: 14px; line-height: 1.55; }
 .card code { padding: 1px 5px; border-radius: 5px; background: var(--soft); font-family: var(--font-mono); font-size: 12.5px; }
 .side-cta { display: grid; gap: 14px; }
 
