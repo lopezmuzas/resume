@@ -63,7 +63,7 @@
       <p class="eyebrow">// software engineer since 2007</p>
       <h2>I build business software for regulated sectors, and the plumbing that lets <mark>AI agents</mark> work with it safely.</h2>
       <p>I start from the business: I improve how a company works through clean architecture and sound engineering practice.</p>
-      <p>Most of my career has been in vehicle inspection and healthcare: systems that run a business day to day, where a wrong number has consequences. Today that means products for inspection stations and AI features with hard limits on what the model can touch. In my spare time I build a home run by agents, tools for my research and the servers they run on. Alongside, I'm preparing a PhD proposal on federated learning over data spaces.</p>
+      <p>Most of my career has been in vehicle inspection, energy and healthcare: systems that run a business day to day, where a wrong number has consequences. Today that means products for inspection stations and energy retail, and AI features with hard limits on what the model can touch. In my spare time I build a home run by agents, tools for my research and the servers they run on. Alongside, I'm preparing a PhD proposal on federated learning over data spaces.</p>
       <p>I have extensive experience working remotely with multidisciplinary teams in startups, research departments and small and medium-sized businesses.</p>
     </section>
 
@@ -77,11 +77,12 @@
           <span class="when">2020 — now</span>
           <div>
             <h3>Software Engineer <span class="at">· <a href="https://www.ibatec.es" target="_blank" rel="noopener">Ibatec</a></span></h3>
-            <p class="where">Vehicle inspection (ITV) technology · remote</p>
-            <p>I design and build the software that inspection stations run on, end to end: from the database to the phone line.</p>
+            <p class="where">Vehicle inspection (ITV) and energy · remote</p>
+            <p>I design and build the software that inspection stations and an energy sales network run on, end to end: from the database to the phone line.</p>
             <ul class="bullets">
               <li>Station management, ERP and online booking, training campus and HR tools, plus integrations with suppliers and inspection equipment.</li>
               <li>The AI layer: a phone agent that books appointments, a checker for vehicle-modification files, natural-language analytics over inspection data and licence-plate recognition.</li>
+              <li>An electricity and gas sales platform: offers, contracts and their processing with each retailer.</li>
               <li>Data sharing between stations and in agrifood on Ocean Protocol data spaces.</li>
             </ul>
             <ul class="tags"><li>Python</li><li>FastAPI</li><li>PHP</li><li>Laravel</li><li>React</li><li>PostgreSQL</li><li>MCP</li><li>LLMs</li></ul>
@@ -167,6 +168,12 @@
           <h3>Brake-tester bridge</h3>
           <p>Connects the inspection software with a brake-test bench over its proprietary protocol, exposed as WebSocket and REST and shipped as a Windows executable.</p>
           <ul class="tags"><li>Python</li><li>WebSockets</li><li>PyInstaller</li></ul>
+        </article>
+        <article class="card">
+          <span class="kicker">Energy · sales operations</span>
+          <h3>Energy contracts, from offer to activation</h3>
+          <p>A platform for an electricity and gas sales network: customers and their supply points, rates and products from several retailers with a best-option comparison, bulk contract uploads and a daily processing queue. Each contract moves through the retailer's API, webhooks or file exchange, with per-retailer discard rules and a signature record.</p>
+          <ul class="tags"><li>Laravel</li><li>Livewire</li><li>OAuth (Passport)</li><li>MariaDB</li><li>Webhooks</li></ul>
         </article>
         <article class="card">
           <span class="kicker">Data spaces</span>
