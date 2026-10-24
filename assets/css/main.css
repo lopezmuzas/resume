@@ -120,7 +120,7 @@ section { display: grid; gap: 20px; }
 
 /* La experiencia: una fila por puesto, fechas en mono a la izquierda. */
 .timeline { display: grid; gap: 0; padding: 0; list-style: none; }
-.job { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 6px 28px; padding: 22px 0; border-top: 1px solid var(--border); }
+.job { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 6px 28px; padding: 22px 0; border-top: 1px solid var(--border); }
 .job:first-child { border-top: 0; padding-top: 4px; }
 .when { color: var(--muted); font-family: var(--font-mono); font-size: 12.5px; line-height: 1.9; white-space: nowrap; }
 .job h3 { font-size: 16.5px; font-weight: 650; letter-spacing: -0.01em; }
@@ -149,8 +149,13 @@ section { display: grid; gap: 20px; }
 .skill-row dt { color: var(--ink); font-size: 14px; font-weight: 650; }
 .skill-row dd { margin: 0; color: var(--ink-2); font-size: 14px; }
 
+.card.wide { grid-column: 1 / -1; }
+.card .bullets { margin-top: 2px; font-size: 14px; line-height: 1.55; }
 .card code { padding: 1px 5px; border-radius: 5px; background: var(--soft); font-family: var(--font-mono); font-size: 12.5px; }
 .side-cta { display: grid; gap: 14px; }
+
+.print-only { display: none; }
+.langs { color: var(--ink-2); }
 
 .pubs { display: grid; gap: 10px; padding: 0; list-style: none; }
 .pubs li { color: var(--ink-2); }
@@ -175,14 +180,58 @@ section { display: grid; gap: 20px; }
   .when { line-height: 1.4; }
 }
 
-/* Impreso: claro, sin marco ni menú, y sin cortar un puesto entre páginas. */
+/* Impreso (y el PDF que se descarga): una sola columna, sin foto, menú ni adornos, para que un ATS o un
+   agente lea el texto en orden; el contacto va en texto plano bajo el nombre. */
+@page { size: A4; margin: 14mm 15mm; }
 @media print {
-  :root, :root[data-theme] { color-scheme: light; --outer: #fff; --page: #fff; --surface: #fff; --border: #d3d6db; --ink: #141619; --ink-2: #33363d; --muted: #5b5f69; --accent: #4a5b04; }
-  body { font-size: 11pt; }
-  .frame { display: block; margin: 0; max-width: none; border-radius: 0; }
-  .side { position: static; height: auto; max-height: none; border: 0; padding: 0 0 16px; }
-  .nav, .theme-btn, .btn-primary, .no-print { display: none !important; }
-  .content { padding: 0; gap: 28px; }
-  .job, .card, .skill-row { break-inside: avoid; }
-  a { color: inherit; }
+  :root, :root[data-theme] { color-scheme: light; --outer: #fff; --page: #fff; --surface: #fff; --soft: #fff; --border: #d3d6db; --ink: #141619; --ink-2: #33363d; --muted: #5b5f69; --accent: #141619; --mark: transparent; }
+  body { font-size: 10pt; line-height: 1.45; background: #fff; }
+  .frame { display: block; margin: 0; max-width: none; min-height: 0; border-radius: 0; overflow: visible; }
+  .side { position: static; display: block; height: auto; max-height: none; border: 0; padding: 0 0 10px; }
+  .side-top, .avatar, .nav, .theme-btn, .no-print, #how { display: none !important; }
+  .who { display: block; }
+  .who h1 { font-size: 20pt; }
+  .who .role { color: var(--ink); font-size: 11pt; }
+  .print-only { display: block; }
+  .print-contact { margin-top: 4px; color: var(--ink-2); font-size: 9.5pt; }
+  .content { display: block; padding: 0; }
+  .content > section { display: block; margin-top: 16px; }
+  .content > section > * + * { margin-top: 8px; }
+  .hero { display: block; }
+  .hero .eyebrow { display: none; }
+  .hero h2 { max-width: none; font-size: 12pt; font-weight: 600; letter-spacing: 0; }
+  .hero mark { padding: 0; background: none; color: inherit; }
+  .hero p { max-width: none; font-size: 10pt; }
+  .section-head h2 { padding-bottom: 3px; border-bottom: 1px solid var(--border); font-size: 13pt; font-weight: 700; }
+  .section-head p { display: none; }
+  .section-head.sub { margin-top: 10px; }
+  .section-head h3 { font-size: 11pt; }
+  .job { grid-template-columns: 1fr; gap: 0; padding: 8px 0; border-top: 0; }
+  .when { font-size: 9pt; line-height: 1.5; }
+  .job h3 { font-size: 11pt; }
+  .job h3 .at { color: var(--ink); }
+  .job .where { font-size: 9pt; }
+  .job p { margin-top: 4px; }
+  .bullets { gap: 2px; margin-top: 4px; }
+  .bullets { padding-left: 14px; list-style: disc; }
+  .bullets li { position: static; padding-left: 0; }
+  .bullets li::before { content: none; }
+  .card .kicker::before, .stat::before { content: none; }
+  .tags { display: block; margin-top: 3px; font-size: 9pt; color: var(--muted); }
+  .tags li { display: inline; padding: 0; border: 0; font-family: inherit; font-size: inherit; }
+  .tags li + li::before { content: ", "; }
+  .tags::before { content: "Technologies: "; }
+  .grid { display: block; }
+  .card { display: block; padding: 6px 0; border: 0; border-radius: 0; background: none; }
+  .card > * + * { margin-top: 2px; }
+  .card .kicker { display: none; }
+  .card h3 { font-size: 10.5pt; }
+  .card p, .card .bullets { font-size: 10pt; }
+  .card code { padding: 0; background: none; font-family: inherit; }
+  .skill-row { grid-template-columns: 150px minmax(0, 1fr); padding: 4px 0; border-top: 0; }
+  .skill-row dt, .skill-row dd { font-size: 10pt; }
+  .foot { display: none; }
+  .job, .card, .skill-row, .pubs li { break-inside: avoid; }
+  h2, h3 { break-after: avoid; }
+  a { color: inherit; text-decoration: none; }
 }
