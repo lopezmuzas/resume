@@ -236,12 +236,12 @@
         </article>
         <article class="card wide">
           <h3>Pull requests ready to merge</h3>
-          <p>Nothing reaches main without passing the full check, the same one CI runs; a pre-push hook makes it mandatory on my machine too. On top of that:</p>
+          <p>Nothing reaches main without passing the full check, the same one CI runs, and every push enforces it. On top of that:</p>
           <ul class="bullets">
-            <li>Linting, formatting and strict type checks, plus architecture rules checked by import-linter or architecture tests.</li>
-            <li>Unit tests for the domain, a test for every HTTP endpoint and MCP tool, and integration tests against a real PostgreSQL, tenant isolation included. A bug fix comes with the test that would have caught it, and coverage has a floor that only goes up.</li>
-            <li>A self-review with <code>/code-review</code>, and a <code>/security-review</code> whenever the change touches sessions, permissions, row-level security or keys.</li>
-            <li>A snapshot of the public contract when the API or MCP changes, and before-and-after screenshots when the interface does.</li>
+            <li>Style, formatting and strict type checks, plus automated checks that the architecture's boundaries hold.</li>
+            <li>Unit tests for the business rules, a test for every entry point, and integration tests against a real database, data isolation between customers included. A bug fix comes with the test that would have caught it, and coverage has a floor that only goes up.</li>
+            <li>A code review of every change, and a security review whenever it touches authentication, permissions, data access or secrets.</li>
+            <li>A check of the public contract when the API changes, and before-and-after screenshots when the interface does.</li>
             <li>A description that says what changed for the user, how it was verified and what wasn't, with the delivery checklist ticked or explained.</li>
           </ul>
         </article>
